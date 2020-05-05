@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE scenario SYSTEM "sipp.dtd">
+
+<!-- This program is free software; you can redistribute it and/or      -->
+<!-- modify it under the terms of the GNU General Public License as     -->
+<!-- published by the Free Software Foundation; either version 2 of the -->
+<!-- License, or (at your option) any later version.                    -->
+<!--                                                                    -->
+<!-- This program is distributed in the hope that it will be useful,    -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of     -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the      -->
+<!-- GNU General Public License for more details.                       -->
+<!--                                                                    -->
+<!-- You should have received a copy of the GNU General Public License  -->
+<!-- along with this program; if not, write to the                      -->
+<!-- Free Software Foundation, Inc.,                                    -->
+<!-- 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA             -->
+<!--                                                                    -->
+<!--                 Sipp 'uas' scenario 300Reply-4904RFC               -->
+<!-- ./sipp -i 192.168.1.88 -p 5060 -sf uas-300Reply-4904RFC.xml        -->
+
+<scenario name="UAS 300Reply-4904RFC">
+<recv request="INVITE" crlf="true">
+</recv>
+
+<send retrans="500">
+    <![CDATA[
+
+      SIP/2.0 300 Multiple choices
+      [last_Via:]
+      [last_From:]
+      [last_To:];tag=[call_number]
+      [last_Call-ID:]
+      [last_CSeq:]
+      Contact: <sip:4969200601827;tgrp=B100;trunk-context=test.com@80.149.99.85:5060;transport=udp;Hpt=8eb8_16;CxtId=3;TRC=15e3-ffffffff>;q=0.95,<sip:4969200601827;tgrp=B200;trunk-context=test.com@80.149.99.85:5060;transport=udp;Hpt=8eb8_16;CxtId=3;TRC=15e3-ffffffff>;q=0.9
+      Server: Invoice SIP-server
+
+    ]]>
+  </send>
+  <!-- definition of the response time repartition table (unit is ms)   -->
+  <ResponseTimeRepartition value="10, 20, 30, 40, 50, 100, 150, 200"/>
+
+  <!-- definition of the call length repartition table (unit is ms)     -->
+  <CallLengthRepartition value="10, 50, 100, 500, 1000, 5000, 10000"/>
+
+</scenario>
