@@ -1,0 +1,5 @@
+SEQUENTIAL
+User1;pbx1.example.com;[authentication username=UserName1 password=123456]
+User2;pbx1.example.com;[authentication username=UserName2 password=myPassword]
+1000;pbx2.example.com;[authentication username=1000 password=pw@1000]
+1001;pbx2.example.com;[authentication username=1001 password=pw@1001]
